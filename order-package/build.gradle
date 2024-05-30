@@ -14,6 +14,10 @@ plugins {
 //    id 'com.google.protobuf' version '0.9.1'
 }
 apply plugin: 'io.graphoenix'
+classes.dependsOn {
+    generateGraphQLSource
+//    generateProtobufV3
+}
 
 //protobuf {
 //    protoc {

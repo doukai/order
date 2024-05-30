@@ -29,7 +29,7 @@ dependencies {
     implementation 'io.nozdormu:nozdormu-config:0.0.1-SNAPSHOT'
 
     implementation 'org.mariadb:r2dbc-mariadb:1.1.4'
-    //implementation group: 'io.netty', name: 'netty-resolver-dns-native-macos', version: '4.1.75.Final', classifier: 'osx-aarch_64'
+    implementation group: 'io.netty', name: 'netty-resolver-dns-native-macos', version: '4.1.75.Final', classifier: 'osx-aarch_64'
 
     annotationProcessor project(':order-package')
     annotationProcessor 'io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT'

@@ -2,6 +2,7 @@ package demo.gp.order.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
 import jakarta.annotation.Generated;
+import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.Type;
 
@@ -56,6 +57,8 @@ public class Query {
   private Collection<OrderItemProductRelation> orderItemProductRelationList;
 
   private OrderItemProductRelationConnection orderItemProductRelationConnection;
+
+  private String hello;
 
   public User getUser() {
     return this.user;
@@ -254,5 +257,13 @@ public class Query {
   public void setOrderItemProductRelationConnection(
       OrderItemProductRelationConnection orderItemProductRelationConnection) {
     this.orderItemProductRelationConnection = orderItemProductRelationConnection;
+  }
+
+  public String getHello() {
+    return this.hello;
+  }
+
+  public void setHello(String hello) {
+    this.hello = hello;
   }
 }

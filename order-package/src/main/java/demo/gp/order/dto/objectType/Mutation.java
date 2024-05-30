@@ -1,6 +1,7 @@
 package demo.gp.order.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
+import demo.gp.order.api.RegisterResult;
 import jakarta.annotation.Generated;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.Type;
@@ -40,6 +41,8 @@ public class Mutation {
   private OrderItemProductRelation orderItemProductRelation;
 
   private Collection<OrderItemProductRelation> orderItemProductRelationList;
+
+  private RegisterResult register;
 
   public User getUser() {
     return this.user;
@@ -170,5 +173,13 @@ public class Mutation {
   public void setOrderItemProductRelationList(
       Collection<OrderItemProductRelation> orderItemProductRelationList) {
     this.orderItemProductRelationList = orderItemProductRelationList;
+  }
+
+  public RegisterResult getRegister() {
+    return this.register;
+  }
+
+  public void setRegister(RegisterResult register) {
+    this.register = register;
   }
 }
