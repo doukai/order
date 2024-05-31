@@ -3,6 +3,7 @@ package demo.gp.order.dto.objectType;
 import com.dslplatform.json.CompiledJson;
 import demo.gp.order.api.RegisterResult;
 import jakarta.annotation.Generated;
+import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.Type;
 
@@ -43,6 +44,8 @@ public class Mutation {
   private Collection<OrderItemProductRelation> orderItemProductRelationList;
 
   private RegisterResult register;
+
+  private Collection<String> countingSheep;
 
   public User getUser() {
     return this.user;
@@ -181,5 +184,13 @@ public class Mutation {
 
   public void setRegister(RegisterResult register) {
     this.register = register;
+  }
+
+  public Collection<String> getCountingSheep() {
+    return this.countingSheep;
+  }
+
+  public void setCountingSheep(Collection<String> countingSheep) {
+    this.countingSheep = countingSheep;
   }
 }

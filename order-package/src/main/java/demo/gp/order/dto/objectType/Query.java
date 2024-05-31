@@ -60,6 +60,8 @@ public class Query {
 
   private String hello;
 
+  private String helloAsync;
+
   public User getUser() {
     return this.user;
   }
@@ -265,5 +267,13 @@ public class Query {
 
   public void setHello(String hello) {
     this.hello = hello;
+  }
+
+  public String getHelloAsync() {
+    return this.helloAsync;
+  }
+
+  public void setHelloAsync(String helloAsync) {
+    this.helloAsync = helloAsync;
   }
 }
