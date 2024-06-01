@@ -1,9 +1,11 @@
 package demo.gp.order.api;
 
+import demo.gp.order.dto.objectType.Order;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.Query;
+import org.eclipse.microprofile.graphql.Source;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -56,5 +58,16 @@ public class SystemApi {
     public Flux<String> countingSheep(int count) {
         return Flux.range(0, count)
                 .map(index -> index + 1 + " sheep");
+    }
+
+    public Float total(@Source Order order) {
+        if (order.getItems() != null) {
+            return order.getItems().stream()
+                    .filter(orderItem -> orderItem.getProduct() != null && orderItem.getProduct().getPrice() != null)
+                    .map(orderItem -> orderItem.getProduct().getPrice() * orderItem.getQuantity())
+                    .reduce(Float::sum)
+                    .orElse(null);
+        }
+        return null;
     }
 }
