@@ -1,6 +1,9 @@
 package demo.gp.order.api;
 
+import demo.gp.order.dto.inputObjectType.UserListQueryArguments;
 import demo.gp.order.dto.objectType.Order;
+import io.graphoenix.core.dto.enumType.Operator;
+import io.graphoenix.core.dto.inputObjectType.StringExpression;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
@@ -69,5 +72,16 @@ public class SystemApi {
                     .orElse(null);
         }
         return null;
+    }
+
+    public UserListQueryArguments hideMike(@Source UserListQueryArguments userListQueryArguments) {
+        if (userListQueryArguments == null) {
+            userListQueryArguments = new UserListQueryArguments();
+        }
+        StringExpression stringExpression = new StringExpression();
+        stringExpression.setOpr(Operator.NEQ);
+        stringExpression.setVal("Mike");
+        userListQueryArguments.setName(stringExpression);
+        return userListQueryArguments;
     }
 }
