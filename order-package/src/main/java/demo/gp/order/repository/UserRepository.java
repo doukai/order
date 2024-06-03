@@ -16,4 +16,7 @@ public interface UserRepository {
 
     @Query(userList = @UserListQueryArguments(userType = @UserTypeExpression1(opr = Operator.EQ, val = UserType.VIP)))
     Mono<List<User>> queryVIPUserList();
+
+    @Query(userList = @UserListQueryArguments(userType = @UserTypeExpression1(opr = Operator.EQ, $val = "userType")))
+    Mono<List<User>> queryVIPUserListByUserType(UserType userType);
 }

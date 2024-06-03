@@ -24,4 +24,12 @@ public class UserRepositoryTest {
                 userLit.stream().map((item) -> () -> assertEquals(item.getUserType(), UserType.VIP))
         );
     }
+
+    @Test
+    void queryVIPUserListByUserTypeTest() {
+        List<User> userLit = userRepository.queryVIPUserListByUserType(UserType.REGULAR).block();
+        Assertions.assertAll(
+                userLit.stream().map((item) -> () -> assertEquals(item.getUserType(), UserType.REGULAR))
+        );
+    }
 }

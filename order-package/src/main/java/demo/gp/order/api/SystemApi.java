@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
-import java.util.Random;
+import java.util.UUID;
 
 @GraphQLApi
 @ApplicationScoped
@@ -39,22 +39,10 @@ public class SystemApi {
 
         RegisterResult registerResult = new RegisterResult();
         registerResult.setAccount(account);
-        registerResult.setPassword(genPassword());
+        registerResult.setPassword(UUID.randomUUID().toString());
         registerResult.setAge(age);
 
         return registerResult;
-    }
-
-    private String genPassword() {
-        int leftLimit = 97; // letter 'a'
-        int rightLimit = 122; // letter 'z'
-        int targetStringLength = 10;
-        Random random = new Random();
-
-        return random.ints(leftLimit, rightLimit + 1)
-                .limit(targetStringLength)
-                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-                .toString();
     }
 
     @Mutation
