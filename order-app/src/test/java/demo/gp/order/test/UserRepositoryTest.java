@@ -89,4 +89,19 @@ public class UserRepositoryTest {
                 () -> assertEquals(user.getUserType(), UserType.VIP)
         );
     }
+
+    @Test
+    void updateUserTypeByNameTest() {
+        User user = userRepository.updateUserTypeByName(UserType.REGULAR, "Yara").block();
+        assertAll(
+                () -> assertEquals(user.getName(), "Yara"),
+                () -> assertEquals(user.getUserType(), UserType.REGULAR)
+        );
+    }
+
+    @Test
+    void removeUserByNameTest() {
+        User user = userRepository.removeUserByName("Yara").block();
+        assertNull(user);
+    }
 }

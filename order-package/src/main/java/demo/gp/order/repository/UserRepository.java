@@ -5,6 +5,7 @@ import demo.gp.order.dto.enumType.UserType;
 import demo.gp.order.dto.inputObjectType.UserInput;
 import demo.gp.order.dto.objectType.User;
 import io.graphoenix.core.dto.annotation.StringExpression1;
+import io.graphoenix.core.dto.annotation.StringExpression2;
 import io.graphoenix.core.dto.enumType.Operator;
 import io.graphoenix.spi.annotation.GraphQLOperation;
 import io.graphoenix.spi.annotation.SelectionSet;
@@ -36,4 +37,12 @@ public interface UserRepository {
     @Mutation(user = @UserMutationArguments($input = "userInput"))
     @SelectionSet("{ id name email userType }")
     Mono<User> mutationUser(UserInput userInput);
+
+    @Mutation(user = @UserMutationArguments($userType = "userType", where = @UserExpression1(name = @StringExpression2(opr = Operator.EQ, $val = "name"))))
+    @SelectionSet("{ id name userType }")
+    Mono<User> updateUserTypeByName(UserType userType, String name);
+
+    @Mutation(user = @UserMutationArguments(isDeprecated = true, where = @UserExpression1(name = @StringExpression2(opr = Operator.EQ, $val = "name"))))
+    @SelectionSet("{ id }")
+    Mono<User> removeUserByName(String name);
 }
