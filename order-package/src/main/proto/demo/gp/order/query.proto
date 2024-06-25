@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "demo.gp.order.grpc";
+
+package demo.gp.order;
+
+import "demo/gp/order/enums.proto";
+import "demo/gp/order/objects.proto";
+import "demo/gp/order/interfaces.proto";
+import "demo/gp/order/input_objects.proto";
+import "demo/gp/order/query_requests.proto";
+import "demo/gp/order/query_responses.proto";
+
+service QueryService {
+    rpc User (QueryUserRequest) returns (QueryUserResponse);
+    rpc UserList (QueryUserListRequest) returns (QueryUserListResponse);
+    rpc UserConnection (QueryUserConnectionRequest) returns (QueryUserConnectionResponse);
+    rpc Product (QueryProductRequest) returns (QueryProductResponse);
+    rpc ProductList (QueryProductListRequest) returns (QueryProductListResponse);
+    rpc ProductConnection (QueryProductConnectionRequest) returns (QueryProductConnectionResponse);
+    rpc Order (QueryOrderRequest) returns (QueryOrderResponse);
+    rpc OrderList (QueryOrderListRequest) returns (QueryOrderListResponse);
+    rpc OrderConnection (QueryOrderConnectionRequest) returns (QueryOrderConnectionResponse);
+    rpc OrderItem (QueryOrderItemRequest) returns (QueryOrderItemResponse);
+    rpc OrderItemList (QueryOrderItemListRequest) returns (QueryOrderItemListResponse);
+    rpc OrderItemConnection (QueryOrderItemConnectionRequest) returns (QueryOrderItemConnectionResponse);
+    rpc UserPhoneNumbersRelation (QueryUserPhoneNumbersRelationRequest) returns (QueryUserPhoneNumbersRelationResponse);
+    rpc UserPhoneNumbersRelationList (QueryUserPhoneNumbersRelationListRequest) returns (QueryUserPhoneNumbersRelationListResponse);
+    rpc UserPhoneNumbersRelationConnection (QueryUserPhoneNumbersRelationConnectionRequest) returns (QueryUserPhoneNumbersRelationConnectionResponse);
+    rpc OrderUserRelation (QueryOrderUserRelationRequest) returns (QueryOrderUserRelationResponse);
+    rpc OrderUserRelationList (QueryOrderUserRelationListRequest) returns (QueryOrderUserRelationListResponse);
+    rpc OrderUserRelationConnection (QueryOrderUserRelationConnectionRequest) returns (QueryOrderUserRelationConnectionResponse);
+    rpc OrderOrderItemRelation (QueryOrderOrderItemRelationRequest) returns (QueryOrderOrderItemRelationResponse);
+    rpc OrderOrderItemRelationList (QueryOrderOrderItemRelationListRequest) returns (QueryOrderOrderItemRelationListResponse);
+    rpc OrderOrderItemRelationConnection (QueryOrderOrderItemRelationConnectionRequest) returns (QueryOrderOrderItemRelationConnectionResponse);
+    rpc OrderItemProductRelation (QueryOrderItemProductRelationRequest) returns (QueryOrderItemProductRelationResponse);
+    rpc OrderItemProductRelationList (QueryOrderItemProductRelationListRequest) returns (QueryOrderItemProductRelationListResponse);
+    rpc OrderItemProductRelationConnection (QueryOrderItemProductRelationConnectionRequest) returns (QueryOrderItemProductRelationConnectionResponse);
+    rpc Hello (QueryHelloRequest) returns (QueryHelloResponse);
+    rpc HelloAsync (QueryHelloAsyncRequest) returns (QueryHelloAsyncResponse);
+}

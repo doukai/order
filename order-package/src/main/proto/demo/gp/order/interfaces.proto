@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "demo.gp.order.dto.objectType.grpc";
+
+package demo.gp.order;
+
+import "demo/gp/order/enums.proto";
+

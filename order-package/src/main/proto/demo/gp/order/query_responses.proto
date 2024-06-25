@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "demo.gp.order.grpc";
+
+package demo.gp.order;
+
+import "demo/gp/order/enums.proto";
+import "demo/gp/order/objects.proto";
+import "demo/gp/order/interfaces.proto";
+import "demo/gp/order/input_objects.proto";
+import "io/graphoenix/core/enums.proto";
+import "io/graphoenix/core/input_objects.proto";
+
+message QueryUserResponse {
+    User user = 1;
+}
+message QueryUserListResponse {
+    repeated User user_list = 1;
+}
+message QueryUserConnectionResponse {
+    UserConnection user_connection = 1;
+}
+message QueryProductResponse {
+    Product product = 1;
+}
+message QueryProductListResponse {
+    repeated Product product_list = 1;
+}
+message QueryProductConnectionResponse {
+    ProductConnection product_connection = 1;
+}
+message QueryOrderResponse {
+    Order order = 1;
+}
+message QueryOrderListResponse {
+    repeated Order order_list = 1;
+}
+message QueryOrderConnectionResponse {
+    OrderConnection order_connection = 1;
+}
+message QueryOrderItemResponse {
+    OrderItem order_item = 1;
+}
+message QueryOrderItemListResponse {
+    repeated OrderItem order_item_list = 1;
+}
+message QueryOrderItemConnectionResponse {
+    OrderItemConnection order_item_connection = 1;
+}
+message QueryUserPhoneNumbersRelationResponse {
+    UserPhoneNumbersRelation user_phone_numbers_relation = 1;
+}
+message QueryUserPhoneNumbersRelationListResponse {
+    repeated UserPhoneNumbersRelation user_phone_numbers_relation_list = 1;
+}
+message QueryUserPhoneNumbersRelationConnectionResponse {
+    UserPhoneNumbersRelationConnection user_phone_numbers_relation_connection = 1;
+}
+message QueryOrderUserRelationResponse {
+    OrderUserRelation order_user_relation = 1;
+}
+message QueryOrderUserRelationListResponse {
+    repeated OrderUserRelation order_user_relation_list = 1;
+}
+message QueryOrderUserRelationConnectionResponse {
+    OrderUserRelationConnection order_user_relation_connection = 1;
+}
+message QueryOrderOrderItemRelationResponse {
+    OrderOrderItemRelation order_order_item_relation = 1;
+}
+message QueryOrderOrderItemRelationListResponse {
+    repeated OrderOrderItemRelation order_order_item_relation_list = 1;
+}
+message QueryOrderOrderItemRelationConnectionResponse {
+    OrderOrderItemRelationConnection order_order_item_relation_connection = 1;
+}
+message QueryOrderItemProductRelationResponse {
+    OrderItemProductRelation order_item_product_relation = 1;
+}
+message QueryOrderItemProductRelationListResponse {
+    repeated OrderItemProductRelation order_item_product_relation_list = 1;
+}
+message QueryOrderItemProductRelationConnectionResponse {
+    OrderItemProductRelationConnection order_item_product_relation_connection = 1;
+}
+message QueryHelloResponse {
+    string hello = 1;
+}
+message QueryHelloAsyncResponse {
+    string hello_async = 1;
+}
