@@ -1,0 +1,1863 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "demo.gp.order.dto.inputObjectType.grpc";
+
+package demo.gp.order;
+
+import "demo/gp/order/enums.proto";
+import "io/graphoenix/core/enums.proto";
+import "io/graphoenix/core/input_objects.proto";
+import "google/protobuf/timestamp.proto";
+import "google/type/date.proto";
+
+message UserExpression {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.StringExpression email = 3;
+    io.graphoenix.core.StringExpression phone_numbers = 4;
+    UserTypeExpression user_type = 5;
+    OrderExpression orders = 6;
+    bool include_deprecated = 7;
+    io.graphoenix.core.IntExpression version = 8;
+    io.graphoenix.core.IntExpression realm_id = 9;
+    io.graphoenix.core.StringExpression create_user_id = 10;
+    io.graphoenix.core.StringExpression create_time = 11;
+    io.graphoenix.core.StringExpression update_user_id = 12;
+    io.graphoenix.core.StringExpression update_time = 13;
+    io.graphoenix.core.StringExpression create_group_id = 14;
+    io.graphoenix.core.StringExpression intro_typename = 15;
+    UserPhoneNumbersRelationExpression user_phone_numbers_relation = 16;
+    OrderUserRelationExpression order_user_relation = 17;
+    bool not = 18;
+    io.graphoenix.core.Conditional cond = 19;
+    repeated UserExpression exs = 20;
+}
+message UserInput {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    repeated string phone_numbers = 4;
+    UserType user_type = 5;
+    repeated OrderInput orders = 6;
+    bool is_deprecated = 7;
+    int32 version = 8;
+    int32 realm_id = 9;
+    string create_user_id = 10;
+    google.protobuf.Timestamp create_time = 11;
+    string update_user_id = 12;
+    google.protobuf.Timestamp update_time = 13;
+    string create_group_id = 14;
+    string intro_typename = 15;
+    repeated UserPhoneNumbersRelationInput user_phone_numbers_relation = 16;
+    repeated OrderUserRelationInput order_user_relation = 17;
+    UserExpression where = 18;
+}
+message UserOrderBy {
+    io.graphoenix.core.Sort id = 1;
+    io.graphoenix.core.Sort name = 2;
+    io.graphoenix.core.Sort email = 3;
+    io.graphoenix.core.Sort user_type = 4;
+    io.graphoenix.core.Sort is_deprecated = 5;
+    io.graphoenix.core.Sort version = 6;
+    io.graphoenix.core.Sort realm_id = 7;
+    io.graphoenix.core.Sort create_user_id = 8;
+    io.graphoenix.core.Sort create_time = 9;
+    io.graphoenix.core.Sort update_user_id = 10;
+    io.graphoenix.core.Sort update_time = 11;
+    io.graphoenix.core.Sort create_group_id = 12;
+    io.graphoenix.core.Sort intro_typename = 13;
+}
+message ProductExpression {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.FloatExpression price = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    bool not = 13;
+    io.graphoenix.core.Conditional cond = 14;
+    repeated ProductExpression exs = 15;
+}
+message ProductInput {
+    string id = 1;
+    string name = 2;
+    float price = 3;
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    ProductExpression where = 13;
+}
+message ProductOrderBy {
+    io.graphoenix.core.Sort id = 1;
+    io.graphoenix.core.Sort name = 2;
+    io.graphoenix.core.Sort price = 3;
+    io.graphoenix.core.Sort is_deprecated = 4;
+    io.graphoenix.core.Sort version = 5;
+    io.graphoenix.core.Sort realm_id = 6;
+    io.graphoenix.core.Sort create_user_id = 7;
+    io.graphoenix.core.Sort create_time = 8;
+    io.graphoenix.core.Sort update_user_id = 9;
+    io.graphoenix.core.Sort update_time = 10;
+    io.graphoenix.core.Sort create_group_id = 11;
+    io.graphoenix.core.Sort intro_typename = 12;
+}
+message OrderExpression {
+    io.graphoenix.core.StringExpression id = 1;
+    UserExpression user = 2;
+    OrderItemExpression items = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderUserRelationExpression order_user_relation = 13;
+    OrderOrderItemRelationExpression order_order_item_relation = 14;
+    bool not = 15;
+    io.graphoenix.core.Conditional cond = 16;
+    repeated OrderExpression exs = 17;
+}
+message OrderInput {
+    string id = 1;
+    UserInput user = 2;
+    repeated OrderItemInput items = 3;
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    repeated OrderUserRelationInput order_user_relation = 13;
+    repeated OrderOrderItemRelationInput order_order_item_relation = 14;
+    OrderExpression where = 15;
+}
+message OrderOrderBy {
+    io.graphoenix.core.Sort id = 1;
+    io.graphoenix.core.Sort is_deprecated = 2;
+    io.graphoenix.core.Sort version = 3;
+    io.graphoenix.core.Sort realm_id = 4;
+    io.graphoenix.core.Sort create_user_id = 5;
+    io.graphoenix.core.Sort create_time = 6;
+    io.graphoenix.core.Sort update_user_id = 7;
+    io.graphoenix.core.Sort update_time = 8;
+    io.graphoenix.core.Sort create_group_id = 9;
+    io.graphoenix.core.Sort intro_typename = 10;
+}
+message OrderItemExpression {
+    io.graphoenix.core.StringExpression id = 1;
+    ProductExpression product = 2;
+    io.graphoenix.core.IntExpression quantity = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderItemProductRelationExpression order_item_product_relation = 13;
+    bool not = 14;
+    io.graphoenix.core.Conditional cond = 15;
+    repeated OrderItemExpression exs = 16;
+}
+message OrderItemInput {
+    string id = 1;
+    ProductInput product = 2;
+    int32 quantity = 3;
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    repeated OrderItemProductRelationInput order_item_product_relation = 13;
+    OrderItemExpression where = 14;
+}
+message OrderItemOrderBy {
+    io.graphoenix.core.Sort id = 1;
+    io.graphoenix.core.Sort quantity = 2;
+    io.graphoenix.core.Sort is_deprecated = 3;
+    io.graphoenix.core.Sort version = 4;
+    io.graphoenix.core.Sort realm_id = 5;
+    io.graphoenix.core.Sort create_user_id = 6;
+    io.graphoenix.core.Sort create_time = 7;
+    io.graphoenix.core.Sort update_user_id = 8;
+    io.graphoenix.core.Sort update_time = 9;
+    io.graphoenix.core.Sort create_group_id = 10;
+    io.graphoenix.core.Sort intro_typename = 11;
+}
+message UserPhoneNumbersRelationExpression {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression phone_numbers_ref = 4;
+    bool include_deprecated = 5;
+    io.graphoenix.core.IntExpression version = 6;
+    io.graphoenix.core.IntExpression realm_id = 7;
+    io.graphoenix.core.StringExpression create_user_id = 8;
+    io.graphoenix.core.StringExpression create_time = 9;
+    io.graphoenix.core.StringExpression update_user_id = 10;
+    io.graphoenix.core.StringExpression update_time = 11;
+    io.graphoenix.core.StringExpression create_group_id = 12;
+    io.graphoenix.core.StringExpression intro_typename = 13;
+    bool not = 14;
+    io.graphoenix.core.Conditional cond = 15;
+    repeated UserPhoneNumbersRelationExpression exs = 16;
+}
+message UserPhoneNumbersRelationInput {
+    string id = 1;
+    string user_ref = 2;
+    UserInput user = 3;
+    string phone_numbers_ref = 4;
+    bool is_deprecated = 5;
+    int32 version = 6;
+    int32 realm_id = 7;
+    string create_user_id = 8;
+    google.protobuf.Timestamp create_time = 9;
+    string update_user_id = 10;
+    google.protobuf.Timestamp update_time = 11;
+    string create_group_id = 12;
+    string intro_typename = 13;
+    UserPhoneNumbersRelationExpression where = 14;
+}
+message UserPhoneNumbersRelationOrderBy {
+    io.graphoenix.core.Sort id = 1;
+    io.graphoenix.core.Sort user_ref = 2;
+    io.graphoenix.core.Sort phone_numbers_ref = 3;
+    io.graphoenix.core.Sort is_deprecated = 4;
+    io.graphoenix.core.Sort version = 5;
+    io.graphoenix.core.Sort realm_id = 6;
+    io.graphoenix.core.Sort create_user_id = 7;
+    io.graphoenix.core.Sort create_time = 8;
+    io.graphoenix.core.Sort update_user_id = 9;
+    io.graphoenix.core.Sort update_time = 10;
+    io.graphoenix.core.Sort create_group_id = 11;
+    io.graphoenix.core.Sort intro_typename = 12;
+}
+message OrderUserRelationExpression {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression order_ref = 4;
+    OrderExpression order = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    bool not = 15;
+    io.graphoenix.core.Conditional cond = 16;
+    repeated OrderUserRelationExpression exs = 17;
+}
+message OrderUserRelationInput {
+    string id = 1;
+    string user_ref = 2;
+    UserInput user = 3;
+    string order_ref = 4;
+    OrderInput order = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    OrderUserRelationExpression where = 15;
+}
+message OrderUserRelationOrderBy {
+    io.graphoenix.core.Sort id = 1;
+    io.graphoenix.core.Sort user_ref = 2;
+    io.graphoenix.core.Sort order_ref = 3;
+    io.graphoenix.core.Sort is_deprecated = 4;
+    io.graphoenix.core.Sort version = 5;
+    io.graphoenix.core.Sort realm_id = 6;
+    io.graphoenix.core.Sort create_user_id = 7;
+    io.graphoenix.core.Sort create_time = 8;
+    io.graphoenix.core.Sort update_user_id = 9;
+    io.graphoenix.core.Sort update_time = 10;
+    io.graphoenix.core.Sort create_group_id = 11;
+    io.graphoenix.core.Sort intro_typename = 12;
+}
+message OrderOrderItemRelationExpression {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_ref = 2;
+    OrderExpression order = 3;
+    io.graphoenix.core.StringExpression order_item_ref = 4;
+    OrderItemExpression order_item = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    bool not = 15;
+    io.graphoenix.core.Conditional cond = 16;
+    repeated OrderOrderItemRelationExpression exs = 17;
+}
+message OrderOrderItemRelationInput {
+    string id = 1;
+    string order_ref = 2;
+    OrderInput order = 3;
+    string order_item_ref = 4;
+    OrderItemInput order_item = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    OrderOrderItemRelationExpression where = 15;
+}
+message OrderOrderItemRelationOrderBy {
+    io.graphoenix.core.Sort id = 1;
+    io.graphoenix.core.Sort order_ref = 2;
+    io.graphoenix.core.Sort order_item_ref = 3;
+    io.graphoenix.core.Sort is_deprecated = 4;
+    io.graphoenix.core.Sort version = 5;
+    io.graphoenix.core.Sort realm_id = 6;
+    io.graphoenix.core.Sort create_user_id = 7;
+    io.graphoenix.core.Sort create_time = 8;
+    io.graphoenix.core.Sort update_user_id = 9;
+    io.graphoenix.core.Sort update_time = 10;
+    io.graphoenix.core.Sort create_group_id = 11;
+    io.graphoenix.core.Sort intro_typename = 12;
+}
+message OrderItemProductRelationExpression {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_item_ref = 2;
+    OrderItemExpression order_item = 3;
+    io.graphoenix.core.StringExpression product_ref = 4;
+    ProductExpression product = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    bool not = 15;
+    io.graphoenix.core.Conditional cond = 16;
+    repeated OrderItemProductRelationExpression exs = 17;
+}
+message OrderItemProductRelationInput {
+    string id = 1;
+    string order_item_ref = 2;
+    OrderItemInput order_item = 3;
+    string product_ref = 4;
+    ProductInput product = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    OrderItemProductRelationExpression where = 15;
+}
+message OrderItemProductRelationOrderBy {
+    io.graphoenix.core.Sort id = 1;
+    io.graphoenix.core.Sort order_item_ref = 2;
+    io.graphoenix.core.Sort product_ref = 3;
+    io.graphoenix.core.Sort is_deprecated = 4;
+    io.graphoenix.core.Sort version = 5;
+    io.graphoenix.core.Sort realm_id = 6;
+    io.graphoenix.core.Sort create_user_id = 7;
+    io.graphoenix.core.Sort create_time = 8;
+    io.graphoenix.core.Sort update_user_id = 9;
+    io.graphoenix.core.Sort update_time = 10;
+    io.graphoenix.core.Sort create_group_id = 11;
+    io.graphoenix.core.Sort intro_typename = 12;
+}
+message UserTypeExpression {
+    io.graphoenix.core.Operator opr = 1;
+    UserType val = 2;
+    repeated UserType arr = 3;
+}
+message UserQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.StringExpression email = 3;
+    io.graphoenix.core.StringExpression phone_numbers = 4;
+    UserTypeExpression user_type = 5;
+    OrderExpression orders = 6;
+    bool include_deprecated = 7;
+    io.graphoenix.core.IntExpression version = 8;
+    io.graphoenix.core.IntExpression realm_id = 9;
+    io.graphoenix.core.StringExpression create_user_id = 10;
+    io.graphoenix.core.StringExpression create_time = 11;
+    io.graphoenix.core.StringExpression update_user_id = 12;
+    io.graphoenix.core.StringExpression update_time = 13;
+    io.graphoenix.core.StringExpression create_group_id = 14;
+    io.graphoenix.core.StringExpression intro_typename = 15;
+    UserPhoneNumbersRelationExpression user_phone_numbers_relation = 16;
+    OrderUserRelationExpression order_user_relation = 17;
+    repeated string group_by = 18;
+    bool not = 19;
+    io.graphoenix.core.Conditional cond = 20;
+    repeated UserExpression exs = 21;
+}
+message UserListQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.StringExpression email = 3;
+    io.graphoenix.core.StringExpression phone_numbers = 4;
+    UserTypeExpression user_type = 5;
+    OrderExpression orders = 6;
+    bool include_deprecated = 7;
+    io.graphoenix.core.IntExpression version = 8;
+    io.graphoenix.core.IntExpression realm_id = 9;
+    io.graphoenix.core.StringExpression create_user_id = 10;
+    io.graphoenix.core.StringExpression create_time = 11;
+    io.graphoenix.core.StringExpression update_user_id = 12;
+    io.graphoenix.core.StringExpression update_time = 13;
+    io.graphoenix.core.StringExpression create_group_id = 14;
+    io.graphoenix.core.StringExpression intro_typename = 15;
+    UserPhoneNumbersRelationExpression user_phone_numbers_relation = 16;
+    OrderUserRelationExpression order_user_relation = 17;
+    UserOrderBy order_by = 18;
+    repeated string group_by = 19;
+    bool not = 20;
+    io.graphoenix.core.Conditional cond = 21;
+    repeated UserExpression exs = 22;
+    int32 first = 23;
+    int32 last = 24;
+    int32 offset = 25;
+    string after = 26;
+    string before = 27;
+}
+message UserConnectionQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.StringExpression email = 3;
+    io.graphoenix.core.StringExpression phone_numbers = 4;
+    UserTypeExpression user_type = 5;
+    OrderExpression orders = 6;
+    bool include_deprecated = 7;
+    io.graphoenix.core.IntExpression version = 8;
+    io.graphoenix.core.IntExpression realm_id = 9;
+    io.graphoenix.core.StringExpression create_user_id = 10;
+    io.graphoenix.core.StringExpression create_time = 11;
+    io.graphoenix.core.StringExpression update_user_id = 12;
+    io.graphoenix.core.StringExpression update_time = 13;
+    io.graphoenix.core.StringExpression create_group_id = 14;
+    io.graphoenix.core.StringExpression intro_typename = 15;
+    UserPhoneNumbersRelationExpression user_phone_numbers_relation = 16;
+    OrderUserRelationExpression order_user_relation = 17;
+    UserOrderBy order_by = 18;
+    repeated string group_by = 19;
+    bool not = 20;
+    io.graphoenix.core.Conditional cond = 21;
+    repeated UserExpression exs = 22;
+    int32 first = 23;
+    int32 last = 24;
+    int32 offset = 25;
+    string after = 26;
+    string before = 27;
+}
+message ProductQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.FloatExpression price = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    repeated string group_by = 13;
+    bool not = 14;
+    io.graphoenix.core.Conditional cond = 15;
+    repeated ProductExpression exs = 16;
+}
+message ProductListQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.FloatExpression price = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    ProductOrderBy order_by = 13;
+    repeated string group_by = 14;
+    bool not = 15;
+    io.graphoenix.core.Conditional cond = 16;
+    repeated ProductExpression exs = 17;
+    int32 first = 18;
+    int32 last = 19;
+    int32 offset = 20;
+    string after = 21;
+    string before = 22;
+}
+message ProductConnectionQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.FloatExpression price = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    ProductOrderBy order_by = 13;
+    repeated string group_by = 14;
+    bool not = 15;
+    io.graphoenix.core.Conditional cond = 16;
+    repeated ProductExpression exs = 17;
+    int32 first = 18;
+    int32 last = 19;
+    int32 offset = 20;
+    string after = 21;
+    string before = 22;
+}
+message OrderQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    UserExpression user = 2;
+    OrderItemExpression items = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderUserRelationExpression order_user_relation = 13;
+    OrderOrderItemRelationExpression order_order_item_relation = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated OrderExpression exs = 18;
+}
+message OrderListQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    UserExpression user = 2;
+    OrderItemExpression items = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderUserRelationExpression order_user_relation = 13;
+    OrderOrderItemRelationExpression order_order_item_relation = 14;
+    OrderOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderConnectionQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    UserExpression user = 2;
+    OrderItemExpression items = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderUserRelationExpression order_user_relation = 13;
+    OrderOrderItemRelationExpression order_order_item_relation = 14;
+    OrderOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderItemQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    ProductExpression product = 2;
+    io.graphoenix.core.IntExpression quantity = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderItemProductRelationExpression order_item_product_relation = 13;
+    repeated string group_by = 14;
+    bool not = 15;
+    io.graphoenix.core.Conditional cond = 16;
+    repeated OrderItemExpression exs = 17;
+}
+message OrderItemListQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    ProductExpression product = 2;
+    io.graphoenix.core.IntExpression quantity = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderItemProductRelationExpression order_item_product_relation = 13;
+    OrderItemOrderBy order_by = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated OrderItemExpression exs = 18;
+    int32 first = 19;
+    int32 last = 20;
+    int32 offset = 21;
+    string after = 22;
+    string before = 23;
+}
+message OrderItemConnectionQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    ProductExpression product = 2;
+    io.graphoenix.core.IntExpression quantity = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderItemProductRelationExpression order_item_product_relation = 13;
+    OrderItemOrderBy order_by = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated OrderItemExpression exs = 18;
+    int32 first = 19;
+    int32 last = 20;
+    int32 offset = 21;
+    string after = 22;
+    string before = 23;
+}
+message UserPhoneNumbersRelationQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression phone_numbers_ref = 4;
+    bool include_deprecated = 5;
+    io.graphoenix.core.IntExpression version = 6;
+    io.graphoenix.core.IntExpression realm_id = 7;
+    io.graphoenix.core.StringExpression create_user_id = 8;
+    io.graphoenix.core.StringExpression create_time = 9;
+    io.graphoenix.core.StringExpression update_user_id = 10;
+    io.graphoenix.core.StringExpression update_time = 11;
+    io.graphoenix.core.StringExpression create_group_id = 12;
+    io.graphoenix.core.StringExpression intro_typename = 13;
+    repeated string group_by = 14;
+    bool not = 15;
+    io.graphoenix.core.Conditional cond = 16;
+    repeated UserPhoneNumbersRelationExpression exs = 17;
+}
+message UserPhoneNumbersRelationListQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression phone_numbers_ref = 4;
+    bool include_deprecated = 5;
+    io.graphoenix.core.IntExpression version = 6;
+    io.graphoenix.core.IntExpression realm_id = 7;
+    io.graphoenix.core.StringExpression create_user_id = 8;
+    io.graphoenix.core.StringExpression create_time = 9;
+    io.graphoenix.core.StringExpression update_user_id = 10;
+    io.graphoenix.core.StringExpression update_time = 11;
+    io.graphoenix.core.StringExpression create_group_id = 12;
+    io.graphoenix.core.StringExpression intro_typename = 13;
+    UserPhoneNumbersRelationOrderBy order_by = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated UserPhoneNumbersRelationExpression exs = 18;
+    int32 first = 19;
+    int32 last = 20;
+    int32 offset = 21;
+    string after = 22;
+    string before = 23;
+}
+message UserPhoneNumbersRelationConnectionQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression phone_numbers_ref = 4;
+    bool include_deprecated = 5;
+    io.graphoenix.core.IntExpression version = 6;
+    io.graphoenix.core.IntExpression realm_id = 7;
+    io.graphoenix.core.StringExpression create_user_id = 8;
+    io.graphoenix.core.StringExpression create_time = 9;
+    io.graphoenix.core.StringExpression update_user_id = 10;
+    io.graphoenix.core.StringExpression update_time = 11;
+    io.graphoenix.core.StringExpression create_group_id = 12;
+    io.graphoenix.core.StringExpression intro_typename = 13;
+    UserPhoneNumbersRelationOrderBy order_by = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated UserPhoneNumbersRelationExpression exs = 18;
+    int32 first = 19;
+    int32 last = 20;
+    int32 offset = 21;
+    string after = 22;
+    string before = 23;
+}
+message OrderUserRelationQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression order_ref = 4;
+    OrderExpression order = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated OrderUserRelationExpression exs = 18;
+}
+message OrderUserRelationListQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression order_ref = 4;
+    OrderExpression order = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    OrderUserRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderUserRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderUserRelationConnectionQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression order_ref = 4;
+    OrderExpression order = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    OrderUserRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderUserRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderOrderItemRelationQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_ref = 2;
+    OrderExpression order = 3;
+    io.graphoenix.core.StringExpression order_item_ref = 4;
+    OrderItemExpression order_item = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated OrderOrderItemRelationExpression exs = 18;
+}
+message OrderOrderItemRelationListQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_ref = 2;
+    OrderExpression order = 3;
+    io.graphoenix.core.StringExpression order_item_ref = 4;
+    OrderItemExpression order_item = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    OrderOrderItemRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderOrderItemRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderOrderItemRelationConnectionQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_ref = 2;
+    OrderExpression order = 3;
+    io.graphoenix.core.StringExpression order_item_ref = 4;
+    OrderItemExpression order_item = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    OrderOrderItemRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderOrderItemRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderItemProductRelationQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_item_ref = 2;
+    OrderItemExpression order_item = 3;
+    io.graphoenix.core.StringExpression product_ref = 4;
+    ProductExpression product = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated OrderItemProductRelationExpression exs = 18;
+}
+message OrderItemProductRelationListQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_item_ref = 2;
+    OrderItemExpression order_item = 3;
+    io.graphoenix.core.StringExpression product_ref = 4;
+    ProductExpression product = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    OrderItemProductRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderItemProductRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderItemProductRelationConnectionQueryArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_item_ref = 2;
+    OrderItemExpression order_item = 3;
+    io.graphoenix.core.StringExpression product_ref = 4;
+    ProductExpression product = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    OrderItemProductRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderItemProductRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message UserMutationArguments {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    repeated string phone_numbers = 4;
+    UserType user_type = 5;
+    repeated OrderInput orders = 6;
+    bool is_deprecated = 7;
+    int32 version = 8;
+    int32 realm_id = 9;
+    string create_user_id = 10;
+    google.protobuf.Timestamp create_time = 11;
+    string update_user_id = 12;
+    google.protobuf.Timestamp update_time = 13;
+    string create_group_id = 14;
+    string intro_typename = 15;
+    repeated UserPhoneNumbersRelationInput user_phone_numbers_relation = 16;
+    repeated OrderUserRelationInput order_user_relation = 17;
+    UserInput input = 18;
+    UserExpression where = 19;
+}
+message UserListMutationArguments {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    repeated string phone_numbers = 4;
+    UserType user_type = 5;
+    repeated OrderInput orders = 6;
+    bool is_deprecated = 7;
+    int32 version = 8;
+    int32 realm_id = 9;
+    string create_user_id = 10;
+    google.protobuf.Timestamp create_time = 11;
+    string update_user_id = 12;
+    google.protobuf.Timestamp update_time = 13;
+    string create_group_id = 14;
+    string intro_typename = 15;
+    repeated UserPhoneNumbersRelationInput user_phone_numbers_relation = 16;
+    repeated OrderUserRelationInput order_user_relation = 17;
+    repeated UserInput list = 18;
+    UserExpression where = 19;
+}
+message ProductMutationArguments {
+    string id = 1;
+    string name = 2;
+    float price = 3;
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    ProductInput input = 13;
+    ProductExpression where = 14;
+}
+message ProductListMutationArguments {
+    string id = 1;
+    string name = 2;
+    float price = 3;
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    repeated ProductInput list = 13;
+    ProductExpression where = 14;
+}
+message OrderMutationArguments {
+    string id = 1;
+    UserInput user = 2;
+    repeated OrderItemInput items = 3;
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    repeated OrderUserRelationInput order_user_relation = 13;
+    repeated OrderOrderItemRelationInput order_order_item_relation = 14;
+    OrderInput input = 15;
+    OrderExpression where = 16;
+}
+message OrderListMutationArguments {
+    string id = 1;
+    UserInput user = 2;
+    repeated OrderItemInput items = 3;
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    repeated OrderUserRelationInput order_user_relation = 13;
+    repeated OrderOrderItemRelationInput order_order_item_relation = 14;
+    repeated OrderInput list = 15;
+    OrderExpression where = 16;
+}
+message OrderItemMutationArguments {
+    string id = 1;
+    ProductInput product = 2;
+    int32 quantity = 3;
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    repeated OrderItemProductRelationInput order_item_product_relation = 13;
+    OrderItemInput input = 14;
+    OrderItemExpression where = 15;
+}
+message OrderItemListMutationArguments {
+    string id = 1;
+    ProductInput product = 2;
+    int32 quantity = 3;
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    repeated OrderItemProductRelationInput order_item_product_relation = 13;
+    repeated OrderItemInput list = 14;
+    OrderItemExpression where = 15;
+}
+message UserPhoneNumbersRelationMutationArguments {
+    string id = 1;
+    string user_ref = 2;
+    UserInput user = 3;
+    string phone_numbers_ref = 4;
+    bool is_deprecated = 5;
+    int32 version = 6;
+    int32 realm_id = 7;
+    string create_user_id = 8;
+    google.protobuf.Timestamp create_time = 9;
+    string update_user_id = 10;
+    google.protobuf.Timestamp update_time = 11;
+    string create_group_id = 12;
+    string intro_typename = 13;
+    UserPhoneNumbersRelationInput input = 14;
+    UserPhoneNumbersRelationExpression where = 15;
+}
+message UserPhoneNumbersRelationListMutationArguments {
+    string id = 1;
+    string user_ref = 2;
+    UserInput user = 3;
+    string phone_numbers_ref = 4;
+    bool is_deprecated = 5;
+    int32 version = 6;
+    int32 realm_id = 7;
+    string create_user_id = 8;
+    google.protobuf.Timestamp create_time = 9;
+    string update_user_id = 10;
+    google.protobuf.Timestamp update_time = 11;
+    string create_group_id = 12;
+    string intro_typename = 13;
+    repeated UserPhoneNumbersRelationInput list = 14;
+    UserPhoneNumbersRelationExpression where = 15;
+}
+message OrderUserRelationMutationArguments {
+    string id = 1;
+    string user_ref = 2;
+    UserInput user = 3;
+    string order_ref = 4;
+    OrderInput order = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    OrderUserRelationInput input = 15;
+    OrderUserRelationExpression where = 16;
+}
+message OrderUserRelationListMutationArguments {
+    string id = 1;
+    string user_ref = 2;
+    UserInput user = 3;
+    string order_ref = 4;
+    OrderInput order = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    repeated OrderUserRelationInput list = 15;
+    OrderUserRelationExpression where = 16;
+}
+message OrderOrderItemRelationMutationArguments {
+    string id = 1;
+    string order_ref = 2;
+    OrderInput order = 3;
+    string order_item_ref = 4;
+    OrderItemInput order_item = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    OrderOrderItemRelationInput input = 15;
+    OrderOrderItemRelationExpression where = 16;
+}
+message OrderOrderItemRelationListMutationArguments {
+    string id = 1;
+    string order_ref = 2;
+    OrderInput order = 3;
+    string order_item_ref = 4;
+    OrderItemInput order_item = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    repeated OrderOrderItemRelationInput list = 15;
+    OrderOrderItemRelationExpression where = 16;
+}
+message OrderItemProductRelationMutationArguments {
+    string id = 1;
+    string order_item_ref = 2;
+    OrderItemInput order_item = 3;
+    string product_ref = 4;
+    ProductInput product = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    OrderItemProductRelationInput input = 15;
+    OrderItemProductRelationExpression where = 16;
+}
+message OrderItemProductRelationListMutationArguments {
+    string id = 1;
+    string order_item_ref = 2;
+    OrderItemInput order_item = 3;
+    string product_ref = 4;
+    ProductInput product = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    repeated OrderItemProductRelationInput list = 15;
+    OrderItemProductRelationExpression where = 16;
+}
+message UserSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.StringExpression email = 3;
+    io.graphoenix.core.StringExpression phone_numbers = 4;
+    UserTypeExpression user_type = 5;
+    OrderExpression orders = 6;
+    bool include_deprecated = 7;
+    io.graphoenix.core.IntExpression version = 8;
+    io.graphoenix.core.IntExpression realm_id = 9;
+    io.graphoenix.core.StringExpression create_user_id = 10;
+    io.graphoenix.core.StringExpression create_time = 11;
+    io.graphoenix.core.StringExpression update_user_id = 12;
+    io.graphoenix.core.StringExpression update_time = 13;
+    io.graphoenix.core.StringExpression create_group_id = 14;
+    io.graphoenix.core.StringExpression intro_typename = 15;
+    UserPhoneNumbersRelationExpression user_phone_numbers_relation = 16;
+    OrderUserRelationExpression order_user_relation = 17;
+    repeated string group_by = 18;
+    bool not = 19;
+    io.graphoenix.core.Conditional cond = 20;
+    repeated UserExpression exs = 21;
+}
+message UserListSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.StringExpression email = 3;
+    io.graphoenix.core.StringExpression phone_numbers = 4;
+    UserTypeExpression user_type = 5;
+    OrderExpression orders = 6;
+    bool include_deprecated = 7;
+    io.graphoenix.core.IntExpression version = 8;
+    io.graphoenix.core.IntExpression realm_id = 9;
+    io.graphoenix.core.StringExpression create_user_id = 10;
+    io.graphoenix.core.StringExpression create_time = 11;
+    io.graphoenix.core.StringExpression update_user_id = 12;
+    io.graphoenix.core.StringExpression update_time = 13;
+    io.graphoenix.core.StringExpression create_group_id = 14;
+    io.graphoenix.core.StringExpression intro_typename = 15;
+    UserPhoneNumbersRelationExpression user_phone_numbers_relation = 16;
+    OrderUserRelationExpression order_user_relation = 17;
+    UserOrderBy order_by = 18;
+    repeated string group_by = 19;
+    bool not = 20;
+    io.graphoenix.core.Conditional cond = 21;
+    repeated UserExpression exs = 22;
+    int32 first = 23;
+    int32 last = 24;
+    int32 offset = 25;
+    string after = 26;
+    string before = 27;
+}
+message UserConnectionSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.StringExpression email = 3;
+    io.graphoenix.core.StringExpression phone_numbers = 4;
+    UserTypeExpression user_type = 5;
+    OrderExpression orders = 6;
+    bool include_deprecated = 7;
+    io.graphoenix.core.IntExpression version = 8;
+    io.graphoenix.core.IntExpression realm_id = 9;
+    io.graphoenix.core.StringExpression create_user_id = 10;
+    io.graphoenix.core.StringExpression create_time = 11;
+    io.graphoenix.core.StringExpression update_user_id = 12;
+    io.graphoenix.core.StringExpression update_time = 13;
+    io.graphoenix.core.StringExpression create_group_id = 14;
+    io.graphoenix.core.StringExpression intro_typename = 15;
+    UserPhoneNumbersRelationExpression user_phone_numbers_relation = 16;
+    OrderUserRelationExpression order_user_relation = 17;
+    UserOrderBy order_by = 18;
+    repeated string group_by = 19;
+    bool not = 20;
+    io.graphoenix.core.Conditional cond = 21;
+    repeated UserExpression exs = 22;
+    int32 first = 23;
+    int32 last = 24;
+    int32 offset = 25;
+    string after = 26;
+    string before = 27;
+}
+message ProductSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.FloatExpression price = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    repeated string group_by = 13;
+    bool not = 14;
+    io.graphoenix.core.Conditional cond = 15;
+    repeated ProductExpression exs = 16;
+}
+message ProductListSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.FloatExpression price = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    ProductOrderBy order_by = 13;
+    repeated string group_by = 14;
+    bool not = 15;
+    io.graphoenix.core.Conditional cond = 16;
+    repeated ProductExpression exs = 17;
+    int32 first = 18;
+    int32 last = 19;
+    int32 offset = 20;
+    string after = 21;
+    string before = 22;
+}
+message ProductConnectionSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression name = 2;
+    io.graphoenix.core.FloatExpression price = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    ProductOrderBy order_by = 13;
+    repeated string group_by = 14;
+    bool not = 15;
+    io.graphoenix.core.Conditional cond = 16;
+    repeated ProductExpression exs = 17;
+    int32 first = 18;
+    int32 last = 19;
+    int32 offset = 20;
+    string after = 21;
+    string before = 22;
+}
+message OrderSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    UserExpression user = 2;
+    OrderItemExpression items = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderUserRelationExpression order_user_relation = 13;
+    OrderOrderItemRelationExpression order_order_item_relation = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated OrderExpression exs = 18;
+}
+message OrderListSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    UserExpression user = 2;
+    OrderItemExpression items = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderUserRelationExpression order_user_relation = 13;
+    OrderOrderItemRelationExpression order_order_item_relation = 14;
+    OrderOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderConnectionSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    UserExpression user = 2;
+    OrderItemExpression items = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderUserRelationExpression order_user_relation = 13;
+    OrderOrderItemRelationExpression order_order_item_relation = 14;
+    OrderOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderItemSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    ProductExpression product = 2;
+    io.graphoenix.core.IntExpression quantity = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderItemProductRelationExpression order_item_product_relation = 13;
+    repeated string group_by = 14;
+    bool not = 15;
+    io.graphoenix.core.Conditional cond = 16;
+    repeated OrderItemExpression exs = 17;
+}
+message OrderItemListSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    ProductExpression product = 2;
+    io.graphoenix.core.IntExpression quantity = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderItemProductRelationExpression order_item_product_relation = 13;
+    OrderItemOrderBy order_by = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated OrderItemExpression exs = 18;
+    int32 first = 19;
+    int32 last = 20;
+    int32 offset = 21;
+    string after = 22;
+    string before = 23;
+}
+message OrderItemConnectionSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    ProductExpression product = 2;
+    io.graphoenix.core.IntExpression quantity = 3;
+    bool include_deprecated = 4;
+    io.graphoenix.core.IntExpression version = 5;
+    io.graphoenix.core.IntExpression realm_id = 6;
+    io.graphoenix.core.StringExpression create_user_id = 7;
+    io.graphoenix.core.StringExpression create_time = 8;
+    io.graphoenix.core.StringExpression update_user_id = 9;
+    io.graphoenix.core.StringExpression update_time = 10;
+    io.graphoenix.core.StringExpression create_group_id = 11;
+    io.graphoenix.core.StringExpression intro_typename = 12;
+    OrderItemProductRelationExpression order_item_product_relation = 13;
+    OrderItemOrderBy order_by = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated OrderItemExpression exs = 18;
+    int32 first = 19;
+    int32 last = 20;
+    int32 offset = 21;
+    string after = 22;
+    string before = 23;
+}
+message UserPhoneNumbersRelationSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression phone_numbers_ref = 4;
+    bool include_deprecated = 5;
+    io.graphoenix.core.IntExpression version = 6;
+    io.graphoenix.core.IntExpression realm_id = 7;
+    io.graphoenix.core.StringExpression create_user_id = 8;
+    io.graphoenix.core.StringExpression create_time = 9;
+    io.graphoenix.core.StringExpression update_user_id = 10;
+    io.graphoenix.core.StringExpression update_time = 11;
+    io.graphoenix.core.StringExpression create_group_id = 12;
+    io.graphoenix.core.StringExpression intro_typename = 13;
+    repeated string group_by = 14;
+    bool not = 15;
+    io.graphoenix.core.Conditional cond = 16;
+    repeated UserPhoneNumbersRelationExpression exs = 17;
+}
+message UserPhoneNumbersRelationListSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression phone_numbers_ref = 4;
+    bool include_deprecated = 5;
+    io.graphoenix.core.IntExpression version = 6;
+    io.graphoenix.core.IntExpression realm_id = 7;
+    io.graphoenix.core.StringExpression create_user_id = 8;
+    io.graphoenix.core.StringExpression create_time = 9;
+    io.graphoenix.core.StringExpression update_user_id = 10;
+    io.graphoenix.core.StringExpression update_time = 11;
+    io.graphoenix.core.StringExpression create_group_id = 12;
+    io.graphoenix.core.StringExpression intro_typename = 13;
+    UserPhoneNumbersRelationOrderBy order_by = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated UserPhoneNumbersRelationExpression exs = 18;
+    int32 first = 19;
+    int32 last = 20;
+    int32 offset = 21;
+    string after = 22;
+    string before = 23;
+}
+message UserPhoneNumbersRelationConnectionSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression phone_numbers_ref = 4;
+    bool include_deprecated = 5;
+    io.graphoenix.core.IntExpression version = 6;
+    io.graphoenix.core.IntExpression realm_id = 7;
+    io.graphoenix.core.StringExpression create_user_id = 8;
+    io.graphoenix.core.StringExpression create_time = 9;
+    io.graphoenix.core.StringExpression update_user_id = 10;
+    io.graphoenix.core.StringExpression update_time = 11;
+    io.graphoenix.core.StringExpression create_group_id = 12;
+    io.graphoenix.core.StringExpression intro_typename = 13;
+    UserPhoneNumbersRelationOrderBy order_by = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated UserPhoneNumbersRelationExpression exs = 18;
+    int32 first = 19;
+    int32 last = 20;
+    int32 offset = 21;
+    string after = 22;
+    string before = 23;
+}
+message OrderUserRelationSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression order_ref = 4;
+    OrderExpression order = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated OrderUserRelationExpression exs = 18;
+}
+message OrderUserRelationListSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression order_ref = 4;
+    OrderExpression order = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    OrderUserRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderUserRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderUserRelationConnectionSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression user_ref = 2;
+    UserExpression user = 3;
+    io.graphoenix.core.StringExpression order_ref = 4;
+    OrderExpression order = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    OrderUserRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderUserRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderOrderItemRelationSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_ref = 2;
+    OrderExpression order = 3;
+    io.graphoenix.core.StringExpression order_item_ref = 4;
+    OrderItemExpression order_item = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated OrderOrderItemRelationExpression exs = 18;
+}
+message OrderOrderItemRelationListSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_ref = 2;
+    OrderExpression order = 3;
+    io.graphoenix.core.StringExpression order_item_ref = 4;
+    OrderItemExpression order_item = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    OrderOrderItemRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderOrderItemRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderOrderItemRelationConnectionSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_ref = 2;
+    OrderExpression order = 3;
+    io.graphoenix.core.StringExpression order_item_ref = 4;
+    OrderItemExpression order_item = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    OrderOrderItemRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderOrderItemRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderItemProductRelationSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_item_ref = 2;
+    OrderItemExpression order_item = 3;
+    io.graphoenix.core.StringExpression product_ref = 4;
+    ProductExpression product = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated OrderItemProductRelationExpression exs = 18;
+}
+message OrderItemProductRelationListSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_item_ref = 2;
+    OrderItemExpression order_item = 3;
+    io.graphoenix.core.StringExpression product_ref = 4;
+    ProductExpression product = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    OrderItemProductRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderItemProductRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message OrderItemProductRelationConnectionSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1;
+    io.graphoenix.core.StringExpression order_item_ref = 2;
+    OrderItemExpression order_item = 3;
+    io.graphoenix.core.StringExpression product_ref = 4;
+    ProductExpression product = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    OrderItemProductRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated OrderItemProductRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
+}
+message RegisterInput {
+    string name = 1;
+    string email = 2;
+    google.type.Date birthday = 3;
+}
+message Query_hello_Arguments {
+    string user_name = 1;
+}
+message Query_helloAsync_Arguments {
+    string user_name = 1;
+}
+message Mutation_register_Arguments {
+    RegisterInput register_input = 1;
+}
+message Mutation_countingSheep_Arguments {
+    int32 count = 1;
+}

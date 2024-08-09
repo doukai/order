@@ -1,0 +1,48 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath 'io.graphoenix:graphoenix-gradle-plugin:0.0.1-SNAPSHOT'
+    }
+}
+
+plugins {
+    id 'java'
+}
+apply plugin: 'io.graphoenix'
+classes.dependsOn {
+    generateGraphQLSource
+}
+
+group 'demo.gp.order'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    mavenLocal()
+}
+
+dependencies {
+    implementation 'io.graphoenix:graphoenix-core:0.0.1-SNAPSHOT'
+    implementation 'io.nozdormu:nozdormu-inject:0.0.1-SNAPSHOT'
+    implementation 'io.nozdormu:nozdormu-async:0.0.1-SNAPSHOT'
+    implementation 'io.nozdormu:nozdormu-interceptor:0.0.1-SNAPSHOT'
+    implementation 'io.nozdormu:nozdormu-config:0.0.1-SNAPSHOT'
+
+    annotationProcessor 'io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT'
+    annotationProcessor 'io.nozdormu:nozdormu-inject:0.0.1-SNAPSHOT'
+    annotationProcessor 'io.nozdormu:nozdormu-async:0.0.1-SNAPSHOT'
+    annotationProcessor 'io.nozdormu:nozdormu-interceptor:0.0.1-SNAPSHOT'
+    annotationProcessor 'io.nozdormu:nozdormu-config:0.0.1-SNAPSHOT'
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,341 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "demo.gp.order.grpc";
+
+package demo.gp.order;
+
+import "demo/gp/order/enums.proto";
+import "demo/gp/order/objects.proto";
+import "demo/gp/order/interfaces.proto";
+import "demo/gp/order/input_objects.proto";
+import "google/protobuf/timestamp.proto";
+
+message MutationUserRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    string name = 4;
+    string email = 5;
+    repeated string phone_numbers = 6;
+    UserType user_type = 7;
+    repeated OrderInput orders = 8;
+    bool is_deprecated = 9;
+    int32 version = 10;
+    int32 realm_id = 11;
+    string create_user_id = 12;
+    google.protobuf.Timestamp create_time = 13;
+    string update_user_id = 14;
+    google.protobuf.Timestamp update_time = 15;
+    string create_group_id = 16;
+    string intro_typename = 17;
+    repeated UserPhoneNumbersRelationInput user_phone_numbers_relation = 18;
+    repeated OrderUserRelationInput order_user_relation = 19;
+    UserInput input = 20;
+    UserExpression where = 21;
+}
+message MutationUserListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    string name = 4;
+    string email = 5;
+    repeated string phone_numbers = 6;
+    UserType user_type = 7;
+    repeated OrderInput orders = 8;
+    bool is_deprecated = 9;
+    int32 version = 10;
+    int32 realm_id = 11;
+    string create_user_id = 12;
+    google.protobuf.Timestamp create_time = 13;
+    string update_user_id = 14;
+    google.protobuf.Timestamp update_time = 15;
+    string create_group_id = 16;
+    string intro_typename = 17;
+    repeated UserPhoneNumbersRelationInput user_phone_numbers_relation = 18;
+    repeated OrderUserRelationInput order_user_relation = 19;
+    repeated UserInput list = 20;
+    UserExpression where = 21;
+}
+message MutationProductRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    string name = 4;
+    float price = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    ProductInput input = 15;
+    ProductExpression where = 16;
+}
+message MutationProductListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    string name = 4;
+    float price = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    repeated ProductInput list = 15;
+    ProductExpression where = 16;
+}
+message MutationOrderRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    UserInput user = 4;
+    repeated OrderItemInput items = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    repeated OrderUserRelationInput order_user_relation = 15;
+    repeated OrderOrderItemRelationInput order_order_item_relation = 16;
+    OrderInput input = 17;
+    OrderExpression where = 18;
+}
+message MutationOrderListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    UserInput user = 4;
+    repeated OrderItemInput items = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    repeated OrderUserRelationInput order_user_relation = 15;
+    repeated OrderOrderItemRelationInput order_order_item_relation = 16;
+    repeated OrderInput list = 17;
+    OrderExpression where = 18;
+}
+message MutationOrderItemRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    ProductInput product = 4;
+    int32 quantity = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    repeated OrderItemProductRelationInput order_item_product_relation = 15;
+    OrderItemInput input = 16;
+    OrderItemExpression where = 17;
+}
+message MutationOrderItemListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    ProductInput product = 4;
+    int32 quantity = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    repeated OrderItemProductRelationInput order_item_product_relation = 15;
+    repeated OrderItemInput list = 16;
+    OrderItemExpression where = 17;
+}
+message MutationUserPhoneNumbersRelationRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    string user_ref = 4;
+    UserInput user = 5;
+    string phone_numbers_ref = 6;
+    bool is_deprecated = 7;
+    int32 version = 8;
+    int32 realm_id = 9;
+    string create_user_id = 10;
+    google.protobuf.Timestamp create_time = 11;
+    string update_user_id = 12;
+    google.protobuf.Timestamp update_time = 13;
+    string create_group_id = 14;
+    string intro_typename = 15;
+    UserPhoneNumbersRelationInput input = 16;
+    UserPhoneNumbersRelationExpression where = 17;
+}
+message MutationUserPhoneNumbersRelationListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    string user_ref = 4;
+    UserInput user = 5;
+    string phone_numbers_ref = 6;
+    bool is_deprecated = 7;
+    int32 version = 8;
+    int32 realm_id = 9;
+    string create_user_id = 10;
+    google.protobuf.Timestamp create_time = 11;
+    string update_user_id = 12;
+    google.protobuf.Timestamp update_time = 13;
+    string create_group_id = 14;
+    string intro_typename = 15;
+    repeated UserPhoneNumbersRelationInput list = 16;
+    UserPhoneNumbersRelationExpression where = 17;
+}
+message MutationOrderUserRelationRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    string user_ref = 4;
+    UserInput user = 5;
+    string order_ref = 6;
+    OrderInput order = 7;
+    bool is_deprecated = 8;
+    int32 version = 9;
+    int32 realm_id = 10;
+    string create_user_id = 11;
+    google.protobuf.Timestamp create_time = 12;
+    string update_user_id = 13;
+    google.protobuf.Timestamp update_time = 14;
+    string create_group_id = 15;
+    string intro_typename = 16;
+    OrderUserRelationInput input = 17;
+    OrderUserRelationExpression where = 18;
+}
+message MutationOrderUserRelationListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    string user_ref = 4;
+    UserInput user = 5;
+    string order_ref = 6;
+    OrderInput order = 7;
+    bool is_deprecated = 8;
+    int32 version = 9;
+    int32 realm_id = 10;
+    string create_user_id = 11;
+    google.protobuf.Timestamp create_time = 12;
+    string update_user_id = 13;
+    google.protobuf.Timestamp update_time = 14;
+    string create_group_id = 15;
+    string intro_typename = 16;
+    repeated OrderUserRelationInput list = 17;
+    OrderUserRelationExpression where = 18;
+}
+message MutationOrderOrderItemRelationRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    string order_ref = 4;
+    OrderInput order = 5;
+    string order_item_ref = 6;
+    OrderItemInput order_item = 7;
+    bool is_deprecated = 8;
+    int32 version = 9;
+    int32 realm_id = 10;
+    string create_user_id = 11;
+    google.protobuf.Timestamp create_time = 12;
+    string update_user_id = 13;
+    google.protobuf.Timestamp update_time = 14;
+    string create_group_id = 15;
+    string intro_typename = 16;
+    OrderOrderItemRelationInput input = 17;
+    OrderOrderItemRelationExpression where = 18;
+}
+message MutationOrderOrderItemRelationListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    string order_ref = 4;
+    OrderInput order = 5;
+    string order_item_ref = 6;
+    OrderItemInput order_item = 7;
+    bool is_deprecated = 8;
+    int32 version = 9;
+    int32 realm_id = 10;
+    string create_user_id = 11;
+    google.protobuf.Timestamp create_time = 12;
+    string update_user_id = 13;
+    google.protobuf.Timestamp update_time = 14;
+    string create_group_id = 15;
+    string intro_typename = 16;
+    repeated OrderOrderItemRelationInput list = 17;
+    OrderOrderItemRelationExpression where = 18;
+}
+message MutationOrderItemProductRelationRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    string order_item_ref = 4;
+    OrderItemInput order_item = 5;
+    string product_ref = 6;
+    ProductInput product = 7;
+    bool is_deprecated = 8;
+    int32 version = 9;
+    int32 realm_id = 10;
+    string create_user_id = 11;
+    google.protobuf.Timestamp create_time = 12;
+    string update_user_id = 13;
+    google.protobuf.Timestamp update_time = 14;
+    string create_group_id = 15;
+    string intro_typename = 16;
+    OrderItemProductRelationInput input = 17;
+    OrderItemProductRelationExpression where = 18;
+}
+message MutationOrderItemProductRelationListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+    string order_item_ref = 4;
+    OrderItemInput order_item = 5;
+    string product_ref = 6;
+    ProductInput product = 7;
+    bool is_deprecated = 8;
+    int32 version = 9;
+    int32 realm_id = 10;
+    string create_user_id = 11;
+    google.protobuf.Timestamp create_time = 12;
+    string update_user_id = 13;
+    google.protobuf.Timestamp update_time = 14;
+    string create_group_id = 15;
+    string intro_typename = 16;
+    repeated OrderItemProductRelationInput list = 17;
+    OrderItemProductRelationExpression where = 18;
+}
+message MutationRegisterRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    RegisterInput register_input = 3;
+}
+message MutationCountingSheepRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    int32 count = 3;
+}

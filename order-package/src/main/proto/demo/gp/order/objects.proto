@@ -1,0 +1,309 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "demo.gp.order.dto.objectType.grpc";
+
+package demo.gp.order;
+
+import "demo/gp/order/enums.proto";
+import "io/graphoenix/core/objects.proto";
+import "google/protobuf/timestamp.proto";
+
+/**
+* 用户
+*/
+message User {
+    optional string id = 1; /* 用户ID */
+    optional string name = 2; /* 用户名 */
+    string email = 3; /* 电子邮箱 */
+    repeated string phone_numbers = 4; /* 联系方式 */
+    optional UserType user_type = 5; /* 用户类型 */
+    repeated Order orders = 6; /* 订单 */
+    bool is_deprecated = 7;
+    int32 version = 8;
+    int32 realm_id = 9;
+    string create_user_id = 10;
+    google.protobuf.Timestamp create_time = 11;
+    string update_user_id = 12;
+    google.protobuf.Timestamp update_time = 13;
+    string create_group_id = 14;
+    string intro_typename = 15;
+    repeated UserPhoneNumbersRelation user_phone_numbers_relation = 16;
+    repeated OrderUserRelation order_user_relation = 17;
+    Order orders_aggregate = 18;
+    OrderConnection orders_connection = 19;
+    UserPhoneNumbersRelation user_phone_numbers_relation_aggregate = 20;
+    UserPhoneNumbersRelationConnection user_phone_numbers_relation_connection = 21;
+    OrderUserRelation order_user_relation_aggregate = 22;
+    OrderUserRelationConnection order_user_relation_connection = 23;
+    int32 id_count = 24;
+    int32 id_max = 25;
+    int32 id_min = 26;
+    int32 name_count = 27;
+    string name_max = 28;
+    string name_min = 29;
+    int32 email_count = 30;
+    string email_max = 31;
+    string email_min = 32;
+}
+/**
+* 产品
+*/
+message Product {
+    optional string id = 1; /* 产品ID */
+    optional string name = 2; /* 产品名称 */
+    optional float price = 3; /* 定价 */
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    int32 id_count = 13;
+    int32 id_max = 14;
+    int32 id_min = 15;
+    int32 name_count = 16;
+    string name_max = 17;
+    string name_min = 18;
+    int32 price_count = 19;
+    float price_sum = 20;
+    float price_avg = 21;
+    float price_max = 22;
+    float price_min = 23;
+}
+/**
+* 订单
+*/
+message Order {
+    optional string id = 1; /* 订单ID */
+    optional User user = 2; /* 购买用户 */
+    repeated OrderItem items = 3; /* 产品列表 */
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    repeated OrderUserRelation order_user_relation = 13;
+    repeated OrderOrderItemRelation order_order_item_relation = 14;
+    OrderItem items_aggregate = 15;
+    OrderItemConnection items_connection = 16;
+    OrderUserRelation order_user_relation_aggregate = 17;
+    OrderUserRelationConnection order_user_relation_connection = 18;
+    OrderOrderItemRelation order_order_item_relation_aggregate = 19;
+    OrderOrderItemRelationConnection order_order_item_relation_connection = 20;
+    int32 id_count = 21;
+    int32 id_max = 22;
+    int32 id_min = 23;
+    float total = 24;
+}
+/**
+* 订单项
+*/
+message OrderItem {
+    optional string id = 1; /* 订单项ID */
+    optional Product product = 2; /* 产品 */
+    optional int32 quantity = 3; /* 购买数量 */
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    repeated OrderItemProductRelation order_item_product_relation = 13;
+    OrderItemProductRelation order_item_product_relation_aggregate = 14;
+    OrderItemProductRelationConnection order_item_product_relation_connection = 15;
+    int32 id_count = 16;
+    int32 id_max = 17;
+    int32 id_min = 18;
+    int32 quantity_count = 19;
+    int32 quantity_sum = 20;
+    int32 quantity_avg = 21;
+    int32 quantity_max = 22;
+    int32 quantity_min = 23;
+}
+message UserPhoneNumbersRelation {
+    string id = 1;
+    string user_ref = 2;
+    User user = 3;
+    string phone_numbers_ref = 4;
+    bool is_deprecated = 5;
+    int32 version = 6;
+    int32 realm_id = 7;
+    string create_user_id = 8;
+    google.protobuf.Timestamp create_time = 9;
+    string update_user_id = 10;
+    google.protobuf.Timestamp update_time = 11;
+    string create_group_id = 12;
+    string intro_typename = 13;
+    int32 id_count = 14;
+    int32 id_max = 15;
+    int32 id_min = 16;
+    int32 user_ref_count = 17;
+    string user_ref_max = 18;
+    string user_ref_min = 19;
+    int32 phone_numbers_ref_count = 20;
+    string phone_numbers_ref_max = 21;
+    string phone_numbers_ref_min = 22;
+}
+message OrderUserRelation {
+    string id = 1;
+    string user_ref = 2;
+    User user = 3;
+    string order_ref = 4;
+    Order order = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    int32 id_count = 15;
+    int32 id_max = 16;
+    int32 id_min = 17;
+    int32 user_ref_count = 18;
+    string user_ref_max = 19;
+    string user_ref_min = 20;
+    int32 order_ref_count = 21;
+    string order_ref_max = 22;
+    string order_ref_min = 23;
+}
+message OrderOrderItemRelation {
+    string id = 1;
+    string order_ref = 2;
+    Order order = 3;
+    string order_item_ref = 4;
+    OrderItem order_item = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    int32 id_count = 15;
+    int32 id_max = 16;
+    int32 id_min = 17;
+    int32 order_ref_count = 18;
+    string order_ref_max = 19;
+    string order_ref_min = 20;
+    int32 order_item_ref_count = 21;
+    string order_item_ref_max = 22;
+    string order_item_ref_min = 23;
+}
+message OrderItemProductRelation {
+    string id = 1;
+    string order_item_ref = 2;
+    OrderItem order_item = 3;
+    string product_ref = 4;
+    Product product = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    int32 id_count = 15;
+    int32 id_max = 16;
+    int32 id_min = 17;
+    int32 order_item_ref_count = 18;
+    string order_item_ref_max = 19;
+    string order_item_ref_min = 20;
+    int32 product_ref_count = 21;
+    string product_ref_max = 22;
+    string product_ref_min = 23;
+}
+message UserConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated UserEdge edges = 3;
+}
+message UserEdge {
+    User node = 1;
+    string cursor = 2;
+}
+message ProductConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated ProductEdge edges = 3;
+}
+message ProductEdge {
+    Product node = 1;
+    string cursor = 2;
+}
+message OrderConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated OrderEdge edges = 3;
+}
+message OrderEdge {
+    Order node = 1;
+    string cursor = 2;
+}
+message OrderItemConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated OrderItemEdge edges = 3;
+}
+message OrderItemEdge {
+    OrderItem node = 1;
+    string cursor = 2;
+}
+message UserPhoneNumbersRelationConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated UserPhoneNumbersRelationEdge edges = 3;
+}
+message UserPhoneNumbersRelationEdge {
+    UserPhoneNumbersRelation node = 1;
+    string cursor = 2;
+}
+message OrderUserRelationConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated OrderUserRelationEdge edges = 3;
+}
+message OrderUserRelationEdge {
+    OrderUserRelation node = 1;
+    string cursor = 2;
+}
+message OrderOrderItemRelationConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated OrderOrderItemRelationEdge edges = 3;
+}
+message OrderOrderItemRelationEdge {
+    OrderOrderItemRelation node = 1;
+    string cursor = 2;
+}
+message OrderItemProductRelationConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated OrderItemProductRelationEdge edges = 3;
+}
+message OrderItemProductRelationEdge {
+    OrderItemProductRelation node = 1;
+    string cursor = 2;
+}
+message RegisterResult {
+    string account = 1;
+    string password = 2;
+    int32 age = 3;
+}

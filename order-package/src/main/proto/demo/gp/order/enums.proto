@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "demo.gp.order.dto.enumType.grpc";
+
+package demo.gp.order;
+
+/**
+* 用户类型
+*/
+enum UserType {
+    REGULAR_USER_TYPE = 0; /* 普通用户 */
+    VIP_USER_TYPE = 1; /* 会员 */
+}
