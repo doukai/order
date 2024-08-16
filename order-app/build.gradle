@@ -8,32 +8,31 @@ version '0.0.1-SNAPSHOT'
 repositories {
     mavenCentral()
     jcenter()
-    mavenLocal()
 }
 
 dependencies {
     implementation project(':order-package')
-    implementation 'io.graphoenix:graphoenix-core:0.0.1-SNAPSHOT'
-    implementation 'io.graphoenix:graphoenix-r2dbc:0.0.1-SNAPSHOT'
-    implementation 'io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT'
-    implementation 'io.graphoenix:graphoenix-rabbitmq:0.0.1-SNAPSHOT'
-    implementation 'io.graphoenix:graphoenix-json-schema:0.0.1-SNAPSHOT'
-    implementation 'io.graphoenix:graphoenix-introspection:0.0.1-SNAPSHOT'
-    implementation 'io.graphoenix:graphoenix-admin:0.0.1-SNAPSHOT'
+    implementation 'org.graphoenix:graphoenix-core:0.1.2'
+    implementation 'org.graphoenix:graphoenix-r2dbc:0.1.2'
+    implementation 'org.graphoenix:graphoenix-http-server:0.1.3'
+    implementation 'org.graphoenix:graphoenix-rabbitmq:0.1.2'
+    implementation 'org.graphoenix:graphoenix-json-schema:0.1.2'
+    implementation 'org.graphoenix:graphoenix-introspection:0.1.2'
+    implementation 'org.graphoenix:graphoenix-admin:0.1.3'
 
-    implementation 'io.nozdormu:nozdormu-inject:0.0.1-SNAPSHOT'
-    implementation 'io.nozdormu:nozdormu-async:0.0.1-SNAPSHOT'
-    implementation 'io.nozdormu:nozdormu-interceptor:0.0.1-SNAPSHOT'
-    implementation 'io.nozdormu:nozdormu-config:0.0.1-SNAPSHOT'
+    implementation 'org.graphoenix:nozdormu-inject:0.1.0'
+    implementation 'org.graphoenix:nozdormu-async:0.1.0'
+    implementation 'org.graphoenix:nozdormu-interceptor:0.1.0'
+    implementation 'org.graphoenix:nozdormu-config:0.1.0'
 
     implementation 'org.mariadb:r2dbc-mariadb:1.1.4'
     implementation group: 'io.netty', name: 'netty-resolver-dns-native-macos', version: '4.1.75.Final', classifier: 'osx-aarch_64'
 
     annotationProcessor project(':order-package')
-    annotationProcessor 'io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.graphoenix:graphoenix-sql:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.graphoenix:graphoenix-json-schema:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.graphoenix:graphoenix-introspection:0.0.1-SNAPSHOT'
+    annotationProcessor 'org.graphoenix:graphoenix-annotation-processor:0.1.2'
+    annotationProcessor 'org.graphoenix:graphoenix-sql:0.1.2'
+    annotationProcessor 'org.graphoenix:graphoenix-json-schema:0.1.2'
+    annotationProcessor 'org.graphoenix:graphoenix-introspection:0.1.2'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
