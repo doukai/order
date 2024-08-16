@@ -5,12 +5,12 @@ buildscript {
 }
 
 plugins {
-    id 'java'
+    id 'java-library'
     id "org.graphoenix" version "0.1.1"
 }
 
-classes.dependsOn {
-    generateGraphQLSource
+classes {
+    dependsOn generateGraphQLSource
 }
 
 group 'demo.gp.order'
